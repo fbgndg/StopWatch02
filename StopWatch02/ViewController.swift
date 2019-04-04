@@ -58,7 +58,11 @@ class ViewController: UIViewController {
     
     @objc func updateTimer(){
         time+=1
-        timeLabel.text = String(time)
+        let min = time/6000
+        let sec = time/1000 - (min*60)
+        let ssec = time % 100
+        let output = String(format: "%02d:%02d:%02d", min, sec, ssec)
+        timeLabel.text = output
     }
     
         func changeButtonState(start: Bool, puase: Bool, stop:Bool) {
